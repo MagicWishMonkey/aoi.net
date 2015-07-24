@@ -7,6 +7,8 @@ using AOI.Util;
 namespace AOI.Util.IO {
     public sealed class Directory : IComparable, IFileSystemEntry {
         #region -------- VARIABLES & CONSTRUCTOR(S) --------
+        private static string _os = null;
+
         public Directory(string path) {
             if (String.IsNullOrEmpty(path))
                 throw new ArgumentNullException("The path parameter is null/empty!");
@@ -26,9 +28,14 @@ namespace AOI.Util.IO {
                 if (!path.EndsWith("/"))
                     path += "/";
             } else {
-                path = path.Replace("/", @"\");
-                if (!path.EndsWith(@"\"))
-                    path += @"\";
+                if (IsWindows == true) { 
+                    path = path.Replace("/", @"\");
+                    if (!path.EndsWith(@"\"))
+                        path += @"\";
+                } else {
+                    if (!path.EndsWith(@"/"))
+                        path += @"/";
+                }
             }
 
             try {
@@ -39,6 +46,8 @@ namespace AOI.Util.IO {
             }
         }
         #endregion
+
+        
 
         #region -------- PUBLIC - FindPreceding --------
         /// <summary>
@@ -694,6 +703,21 @@ namespace AOI.Util.IO {
         public static Directory Current {
             get {
                 return Directory.Get(System.Environment.CurrentDirectory + "\\");
+            }
+        }
+
+        public static bool IsLinux {
+            get { return (IsWindows == true) ? false : true; }
+        }
+
+        public static bool IsWindows {
+            get {
+                if (Directory._os == null) {
+                    var info = System.Environment.OSVersion;
+                    var os = (info.VersionString.IndexOf("Microsoft") > -1 || info.VersionString.IndexOf("Windows") > -1) ? "windows" : "linux";
+                    Directory._os = os;
+                }
+                return (Directory._os == "windows") ? true : false;
             }
         }
         #endregion

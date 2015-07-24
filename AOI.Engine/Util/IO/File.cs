@@ -24,9 +24,10 @@ namespace AOI.Util.IO {
                 //path = path.Replace("%20", " ");
                 path = Http.UrlDecode(path);
                 path = path.Replace(@"\", "/");
-            } else {
-                path = path.Replace("/", @"\");
-            }
+            } 
+            //else {
+            //    path = path.Replace("/", @"\");
+            //}
 
 
             try {

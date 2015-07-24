@@ -308,10 +308,11 @@ namespace AOI.Data {
             var cfg = ConfigurationManager.ConnectionStrings[name];
             var connStr = cfg.ConnectionString;
             var provider = cfg.ProviderName;
-            
-            if (provider == "System.Data.SqlClient")
+
+            var type = provider.ToLower();
+            if (type.EndsWith("sqlclient"))
                 provider = "SqlServer";
-            else if (provider == "Npgsql")
+            else if (provider.ToLower() == "npgsql" || provider.ToLower().StartsWith("postgres"))
                 provider = "Postgres";
 
             //var cfg = ConfigurationSettings.AppSettings[name];
