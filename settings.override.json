@@ -1,0 +1,11 @@
+{
+    "application": "Art of Old India",
+    "passcode": "befdf5a76b42f119673953ed9c65eff5",
+
+    "databases": {
+        "default": {
+            "driver": "mssql",
+            "connection": "Data Source=(LocalDb)\\v11.0;AttachDbFilename=C:\\Work\\AOI\\AOI.mdf;Initial Catalog=AOI;Integrated Security=True" 
+        }
+    }
+}

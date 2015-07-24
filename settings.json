@@ -1,0 +1,18 @@
+{
+    "application": "My Project",
+    "admins": [ "ron", "willy" ],
+    "passcode": "1ad08aabd7d46793963bf5548b5060e4",
+    "debug": true,
+    
+    "databases": {
+        "default": {
+            "driver": "mssql",
+            "connection":  "Data Source=(LocalDb)\\v11.0;AttachDbFilename=C:\\Work\\AOI\\AOI.mdf;Initial Catalog=AOI;Integrated Security=True",
+            "dsn":  "PostgreSQL35W",
+            "server": "127.0.0.1",
+            "database": "dummy",
+            "username": "ron",
+            "password": "dallas"
+        }
+    }
+}
