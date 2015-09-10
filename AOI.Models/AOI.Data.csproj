@@ -4,14 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7DC21087-E602-4C56-9EEC-D3A661DD43D9}</ProjectGuid>
+    <ProjectGuid>{04E2069F-B0E3-4C27-8A8C-899361A53A53}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AOI.Migrations</RootNamespace>
-    <AssemblyName>AOI.Migrations</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <RootNamespace>AOI.Models</RootNamespace>
+    <AssemblyName>AOI.Models</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -31,15 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Migrator">
-      <HintPath>..\packages\MigratorDotNet.0.9.1\lib\net35\Migrator.dll</HintPath>
-    </Reference>
-    <Reference Include="Migrator.Framework">
-      <HintPath>..\packages\MigratorDotNet.0.9.1\lib\net35\Migrator.Framework.dll</HintPath>
-    </Reference>
-    <Reference Include="Migrator.Providers">
-      <HintPath>..\packages\MigratorDotNet.0.9.1\lib\net35\Migrator.Providers.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -49,10 +39,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helper.cs" />
+    <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\Product.cs" />
+    <Compile Include="Repositories\Categories.cs" />
+    <Compile Include="Repositories\Products.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <ProjectReference Include="..\..\Fuze\Fuze\Fuze.csproj">
+      <Project>{0f434a07-648e-4f79-b2f9-37d11905781c}</Project>
+      <Name>Fuze</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

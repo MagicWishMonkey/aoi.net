@@ -9,9 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>AOI.TestHarness</RootNamespace>
     <AssemblyName>AOI.TestHarness</AssemblyName>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -59,9 +60,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AOI.Engine\AOI.Engine.csproj">
-      <Project>{18372561-aabe-4cce-9408-8e04e64e557d}</Project>
-      <Name>AOI.Engine</Name>
+    <ProjectReference Include="..\..\Fuze\Fuze\Fuze.csproj">
+      <Project>{0f434a07-648e-4f79-b2f9-37d11905781c}</Project>
+      <Name>Fuze</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AOI.Models\AOI.Data.csproj">
+      <Project>{04e2069f-b0e3-4c27-8a8c-899361a53a53}</Project>
+      <Name>AOI.Data</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
